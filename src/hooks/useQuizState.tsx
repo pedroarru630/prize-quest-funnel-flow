@@ -1,9 +1,16 @@
 
 import { useState, useEffect } from 'react';
 
+interface QuizAnswers {
+  artist: string;
+  rating: string;
+  recommendation: string;
+  ageGroup: string;
+}
+
 interface QuizState {
   currentArtistIndex: number;
-  allAnswers: any[];
+  allAnswers: QuizAnswers[];
   currentAnswers: {
     rating: string;
     recommendation: string;
