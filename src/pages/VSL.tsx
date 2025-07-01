@@ -22,10 +22,21 @@ const VSL = () => {
   return (
     <div className="min-h-screen bg-black">
       <div className="container mx-auto px-4 py-8">
-        <vturb-smartplayer 
-          id="vid-68646506c53f6b4dad5f83eb" 
-          style={{ display: 'block', margin: '0 auto', width: '100%' }}
-        />
+        {/* Video container with proper constraints */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+            <vturb-smartplayer 
+              id="vid-68646506c53f6b4dad5f83eb" 
+              style={{ 
+                display: 'block', 
+                width: '100%', 
+                height: '100%',
+                maxWidth: '100%',
+                maxHeight: '100%'
+              }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
