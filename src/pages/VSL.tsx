@@ -7,6 +7,7 @@ const VSL = () => {
     const script = document.createElement("script");
     script.src = "https://scripts.converteai.net/adf51499-85b4-4638-81dd-a9107287a7d1/players/68646506c53f6b4dad5f83eb/v4/player.js";
     script.async = true;
+    script.type = "text/javascript";
     document.head.appendChild(script);
 
     // Cleanup function to remove script when component unmounts
