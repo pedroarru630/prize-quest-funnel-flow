@@ -1,13 +1,75 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import QuizLayout from '@/components/QuizLayout';
+import { useQuizState } from '@/hooks/useQuizState';
 
 const Index = () => {
+  const navigate = useNavigate();
+  const { quizState, isLoaded } = useQuizState();
+  const [showContinue, setShowContinue] = useState(false);
+
+  useEffect(() => {
+    if (isLoaded && quizState.hasStarted) {
+      setShowContinue(true);
+    }
+  }, [isLoaded, quizState.hasStarted]);
+
+  const handleStartNew = () => {
+    navigate('/start');
+  };
+
+  const handleContinue = () => {
+    navigate('/quiz');
+  };
+
+  if (!isLoaded) {
+    return (
+      <QuizLayout showProgress={false}>
+        <div className="text-center">
+          <div className="animate-pulse">
+            <div className="h-8 bg-gray-700 rounded mb-6"></div>
+            <div className="h-6 bg-gray-700 rounded mb-8"></div>
+            <div className="h-12 bg-gray-700 rounded"></div>
+          </div>
+        </div>
+      </QuizLayout>
+    );
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
+    <QuizLayout showProgress={false}>
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+        <div className="mb-8 animate-fade-in">
+          <h1 className="text-3xl font-bold mb-6 text-white">
+            Quiz dos Artistas
+          </h1>
+          
+          <p className="text-gray-300 text-lg mb-8">
+            Descubra qual artista combina mais com você e ganhe recompensas!
+          </p>
+        </div>
+        
+        <div className="space-y-4">
+          {showContinue && (
+            <Button
+              onClick={handleContinue}
+              className="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-4 px-6 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
+            >
+              Continuar Quiz (Artista {quizState.currentArtistIndex + 1}/4)
+            </Button>
+          )}
+          
+          <Button
+            onClick={handleStartNew}
+            className={`w-full ${showContinue ? 'bg-gray-600 hover:bg-gray-700 text-white' : 'bg-green-500 hover:bg-green-600 text-black'} font-bold py-4 px-6 rounded-full text-lg transition-all duration-300 transform hover:scale-105`}
+          >
+            {showContinue ? 'Começar Novo Quiz' : 'Começar Quiz'}
+          </Button>
+        </div>
       </div>
-    </div>
+    </QuizLayout>
   );
 };
 
