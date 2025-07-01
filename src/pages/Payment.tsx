@@ -109,7 +109,7 @@ const Payment = () => {
             <div className="bg-green-500 text-black rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">
               3
             </div>
-            <p className="text-gray-300 text-sm">Escolha a opção "Pagar > Pix Copia e Cola."</p>
+            <p className="text-gray-300 text-sm">Escolha a opção "Pagar &gt; Pix Copia e Cola."</p>
           </div>
           
           <div className="flex items-start">
