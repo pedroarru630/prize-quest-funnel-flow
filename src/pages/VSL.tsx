@@ -30,6 +30,22 @@ const VSL = () => {
     setPercentage(Math.round(progress));
   }, [progress]);
 
+  useEffect(() => {
+    // Load Vturb player script
+    const script = document.createElement("script");
+    script.src = "https://scripts.converteai.net/adf51499-85b4-4638-81dd-a9107287a7d1/players/68646506c53f6b4dad5f83eb/v4/player.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector(`script[src="${script.src}"]`);
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header with Spotify logo and earnings */}
@@ -81,19 +97,11 @@ const VSL = () => {
         <div className="flex justify-center mb-8">
           <div className="relative w-full max-w-2xl">
             <div className="bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
-              {/* Video placeholder - replace with actual video */}
-              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-0 h-0 border-l-8 border-r-0 border-t-6 border-b-6 border-l-black border-t-transparent border-b-transparent ml-1"></div>
-                  </div>
-                  <p className="text-white text-lg font-semibold">
-                    Vídeo de Validação de Segurança
-                  </p>
-                  <p className="text-gray-400 text-sm mt-2">
-                    Clique para assistir e validar sua conta
-                  </p>
-                </div>
+              <div className="aspect-video">
+                <vturb-smartplayer 
+                  id="vid-68646506c53f6b4dad5f83eb" 
+                  style={{ display: 'block', margin: '0 auto', width: '100%' }}
+                />
               </div>
             </div>
           </div>
