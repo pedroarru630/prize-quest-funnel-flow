@@ -1,11 +1,14 @@
-
 import { useState, useEffect } from 'react';
 import { AlertTriangle } from 'lucide-react';
+import WithdrawalNotification from '@/components/WithdrawalNotification';
+import { useWithdrawalNotifications } from '@/hooks/useWithdrawalNotifications';
 
 const VSL = () => {
   const [urgencyCount, setUrgencyCount] = useState(47);
   const [progress, setProgress] = useState(0);
   const [percentage, setPercentage] = useState(0);
+  
+  const { currentNotification, closeNotification } = useWithdrawalNotifications();
 
   useEffect(() => {
     // 5 minutes = 300 seconds = 300,000 milliseconds
@@ -48,6 +51,16 @@ const VSL = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* Withdrawal Notification */}
+      {currentNotification && (
+        <WithdrawalNotification
+          isVisible={currentNotification.isVisible}
+          onClose={closeNotification}
+          name={currentNotification.name}
+          amount={currentNotification.amount}
+        />
+      )}
+
       {/* Header with Spotify logo and earnings */}
       <div className="flex items-center justify-between p-4" style={{ backgroundColor: '#292929' }}>
         <img 
