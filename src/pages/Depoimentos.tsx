@@ -1,11 +1,10 @@
+
 import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
 
 const Depoimentos = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const navigate = useNavigate();
 
   const testimonials = [
     {
@@ -14,7 +13,7 @@ const Depoimentos = () => {
       location: "São Paulo, SP",
       text: "Gente do céu!!! Eu achei que era golpe mas me pagaram mesmo ajudou muito no final do mês",
       earnings: "R$ 3.280,00",
-      photo: "/lovable-uploads/9d2f25f5-6835-4fd8-98a6-5369b5fad82b.png"
+      photo: "/lovable-uploads/d516212d-91ec-4d55-95c9-d93c33a14578.png"
     },
     {
       id: 2,
@@ -22,7 +21,7 @@ const Depoimentos = () => {
       location: "Rio de Janeiro, RJ", 
       text: "Rapaizz, não é que deu certo mesmo? No começo não acreditei que desse pra fazer dinheiro com internet mas hoje consigo pagar minhas contas só com o Spotify e meu salário ficou pra curtir com minha esposa",
       earnings: "R$ 1.530,00",
-      photo: "/lovable-uploads/9d2f25f5-6835-4fd8-98a6-5369b5fad82b.png"
+      photo: "/lovable-uploads/aeeb294b-2969-4da6-895c-da8e32609d03.png"
     }
   ];
 
@@ -35,7 +34,7 @@ const Depoimentos = () => {
   };
 
   const handleContinue = () => {
-    navigate('/payment');
+    window.location.href = 'https://go.pepperpay.com.br/wbce9';
   };
 
   return (
