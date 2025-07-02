@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,16 +12,16 @@ const Depoimentos = () => {
       id: 1,
       name: "Carla Silva",
       location: "São Paulo, SP",
-      text: "Receber aqueles dólares do Spotify é incrível! Consegui juntar uma quantia considerável para comprar roupas para minha filha. Essa oportunidade mudou nossa vida.",
-      earnings: "R$ 280,00",
+      text: "Gente do céu!!! Eu achei que era golpe mas me pagaram mesmo ajudou muito no final do mês",
+      earnings: "R$ 3.280,00",
       photo: "/lovable-uploads/9d2f25f5-6835-4fd8-98a6-5369b5fad82b.png"
     },
     {
       id: 2,
       name: "João Santos",
       location: "Rio de Janeiro, RJ", 
-      text: "Nunca pensei que seria possível ganhar dinheiro ouvindo música. Com o programa do Spotify, consegui uma renda extra que me ajuda muito no final do mês.",
-      earnings: "R$ 150,00",
+      text: "Rapaizz, não é que deu certo mesmo? No começo não acreditei que desse pra fazer dinheiro com internet mas hoje consigo pagar minhas contas só com o Spotify e meu salário ficou pra curtir com minha esposa",
+      earnings: "R$ 1.530,00",
       photo: "/lovable-uploads/9d2f25f5-6835-4fd8-98a6-5369b5fad82b.png"
     }
   ];
