@@ -49,15 +49,15 @@ export const useWithdrawalNotifications = () => {
   };
 
   useEffect(() => {
-    // Show first notification after 10 seconds
+    // Show first notification after 15 seconds
     const initialTimer = setTimeout(() => {
       setCurrentNotification(generateRandomNotification());
-    }, 10000);
+    }, 15000);
 
-    // Then show every 10 seconds
+    // Then show every 15 seconds
     const interval = setInterval(() => {
       setCurrentNotification(generateRandomNotification());
-    }, 10000);
+    }, 15000);
 
     return () => {
       clearTimeout(initialTimer);
