@@ -34,26 +34,29 @@ const SecurityValidationModal = ({ isOpen, onClose, onValidate, dollarRate }: Se
             <p className="text-green-400 font-bold text-lg">R${dollarRate.toFixed(2)}</p>
           </div>
 
-          {/* Spotify Logo */}
-          <div className="flex justify-center mb-6">
-            <img 
-              src="/lovable-uploads/1cc76a91-706e-4d83-b1ff-759f4dedabee.png" 
-              alt="Spotify" 
-              className="h-8"
-            />
-          </div>
-
           {/* Lock and Spotify connection visual */}
           <div className="flex items-center justify-center mb-6">
             <div className="flex items-center">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                <Lock className="w-6 h-6 text-black" />
+              {/* More realistic lock with gradient background */}
+              <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-lg">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-green-300/20 to-transparent"></div>
+                <Lock className="w-7 h-7 text-black relative z-10" strokeWidth={2.5} />
               </div>
-              <div className="w-16 border-t-2 border-dashed border-green-500 mx-2"></div>
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                <span className="text-black font-bold text-xs">S</span>
+              
+              {/* Connection line with better styling */}
+              <div className="flex items-center mx-4">
+                <div className="w-4 h-0.5 bg-green-500"></div>
+                <div className="w-4 h-0.5 bg-green-400"></div>
+                <div className="w-4 h-0.5 bg-green-300"></div>
+                <div className="w-4 h-0.5 bg-green-200"></div>
               </div>
-              <span className="ml-2 text-green-400 font-bold">Spotify</span>
+              
+              {/* Spotify logo instead of circle with S */}
+              <img 
+                src="/lovable-uploads/1cc76a91-706e-4d83-b1ff-759f4dedabee.png" 
+                alt="Spotify" 
+                className="h-14 w-auto"
+              />
             </div>
           </div>
 
@@ -70,7 +73,9 @@ const SecurityValidationModal = ({ isOpen, onClose, onValidate, dollarRate }: Se
 
           {/* Security info */}
           <div className="flex items-start mb-4">
-            <Lock className="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
+            <div className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0 flex items-center justify-center">
+              <Lock className="w-4 h-4 text-gray-400" />
+            </div>
             <p className="text-gray-300 text-sm">
               Isso protege sua conta contra fraudes e garante que só você receba.
             </p>
